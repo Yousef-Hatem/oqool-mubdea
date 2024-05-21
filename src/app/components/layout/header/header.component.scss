@@ -1,0 +1,29 @@
+.logo,
+mat-button-toggle-group {
+  position: absolute;
+  top: 16px;
+}
+.logo {
+  right: 16px;
+}
+mat-button-toggle-group {
+  left: 16px;
+  border-radius: 10px;
+  mat-button-toggle,
+  ::ng-deep .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after {
+    color: #fff;
+  }
+  mat-button-toggle {
+    transition: 0.4s;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.4s;
+    }
+  }
+  mat-button-toggle.female {
+    background: #ff4081;
+  }
+  mat-button-toggle.male {
+    background: #3f51b5;
+  }
+}
