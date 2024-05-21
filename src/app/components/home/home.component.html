@@ -1,0 +1,12 @@
+<section>
+  <div class="sections">
+    @for (section of sections; track $index) {
+    <div class="section">
+      <h3>{{ section.title }}</h3>
+      <div class="imgBx">
+        <img [src]="'assets/images/sections/' + section.img" alt />
+      </div>
+    </div>
+    }
+  </div>
+</section>
