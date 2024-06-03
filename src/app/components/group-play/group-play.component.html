@@ -1,0 +1,91 @@
+<section>
+  @if (message) {
+    <div [class]="'message ' + message.type">
+      {{ message.text }}
+    </div>
+  }
+  <div class="question">
+    <span>{{ question.firstNum }}</span>
+    <span>{{ question.equationSymbol }}</span>
+    <span>{{ question.secondNum }}</span>
+    <span>=</span>
+    <span>؟</span>
+  </div>
+  <div class="options" [class]="{ answered }">
+    @for (option of question.options; track $index) {
+      <div class="option" (click)="chooseOption(option, $index)">
+        {{ option }}
+      </div>
+    }
+  </div>
+
+  @for (group of groups; track $index) {
+    <div [class]="'group ' + group.number + '-group ' + group.status">
+      <h2>{{ group.name }}</h2>
+      <div class="time">
+        {{ group.time * 1000 | date: "mm:ss" | arabicNumbers }}
+      </div>
+    </div>
+  }
+
+  @if (answer) {
+    @if (answer === "correct") {
+      <button
+        class="next-btn"
+        mat-raised-button
+        color="primary"
+        (click)="next()"
+      >
+        التالي
+      </button>
+    } @else {
+      <button class="next-btn" mat-raised-button color="warn" (click)="next()">
+        فهمت
+      </button>
+    }
+  }
+
+  @if (showResults) {
+    <div class="result">
+      <div class="content">
+        <h1>مباراة جيدة، احسنتم جميعا</h1>
+        <h3>النتائج</h3>
+        <div class="groups-result">
+          @for (groupResult of groupsResult; track $index) {
+            <div class="group-result">
+              <div class="right">
+                @switch ($index) {
+                  @case (0) {
+                    <h2 style="color: gold">{{ $index + 1 }}</h2>
+                  }
+                  @case (1) {
+                    <h2 style="color: gray">{{ $index + 1 }}</h2>
+                  }
+                  @case (2) {
+                    <h2 style="color: brown">{{ $index + 1 }}</h2>
+                  }
+                  @default {
+                    <h2>{{ $index + 1 }}</h2>
+                  }
+                }
+                <div class="name">{{ groupResult.name }}</div>
+              </div>
+              <div class="left">
+                <div class="time">
+                  {{ groupResult.time * 1000 | date: "mm:ss" | arabicNumbers }}
+                </div>
+                <div class="correct">{{ groupResult.correct }}</div>
+                <div class="wrong">{{ groupResult.wrong }}</div>
+              </div>
+            </div>
+          }
+        </div>
+        <div>
+          <button mat-raised-button color="primary" (click)="restartGame()">
+            لنلعب مرة أخرى
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</section>
