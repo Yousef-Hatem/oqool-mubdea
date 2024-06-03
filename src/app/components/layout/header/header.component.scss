@@ -5,6 +5,8 @@ mat-button-toggle-group {
 }
 .logo {
   right: 16px;
+  cursor: pointer;
+  z-index: 5;
 }
 mat-button-toggle-group {
   left: 16px;
