@@ -1,0 +1,33 @@
+<section>
+  @if (message) {
+    <div [class]="'message ' + message.type">
+      {{ message.text }}
+    </div>
+  }
+  <div class="question">
+    <span>{{ question.firstNum }}</span>
+    <span>{{ question.equationSymbol }}</span>
+    <span>{{ question.secondNum }}</span>
+    <span>=</span>
+    <span>؟</span>
+  </div>
+  <div class="options" [class]="{ answered }">
+    @for (option of question.options; track $index) {
+      <div class="option" (click)="chooseOption(option, $index)">
+        {{ option }}
+      </div>
+    }
+  </div>
+
+  @if (answer) {
+    @if (answer === "correct") {
+      <button mat-raised-button color="primary" (click)="regenerateQuestion()">
+        التالي
+      </button>
+    } @else {
+      <button mat-raised-button color="warn" (click)="regenerateQuestion()">
+        فهمت
+      </button>
+    }
+  }
+</section>
