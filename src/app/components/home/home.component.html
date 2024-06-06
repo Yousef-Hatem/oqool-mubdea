@@ -1,7 +1,11 @@
 <section>
   <div class="sections">
     @for (section of sections; track $index) {
-      <div class="section" [routerLink]="section.router">
+      <div
+        class="section"
+        [routerLink]="section.router"
+        (click)="section.click !== undefined ? section.click() : ''"
+      >
         <h3>{{ section.title }}</h3>
         <div class="imgBx">
           <img [src]="'assets/images/sections/' + section.img" alt />
@@ -10,3 +14,9 @@
     }
   </div>
 </section>
+
+@if (showFunMathematicsPopup) {
+  <app-fun-mathematics-popup
+    (hideEvent)="hideFunMathematicsPopup()"
+  ></app-fun-mathematics-popup>
+}
