@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { SoundService } from '../../services/sound.service';
 
 @Component({
   selector: 'app-play-singles',
@@ -22,7 +23,7 @@ export class PlaySinglesComponent {
   answered: boolean = false;
   answer: 'correct' | 'wrong' | null = null;
 
-  constructor() {
+  constructor(private soundService: SoundService) {
     this.generateQuestion();
   }
 
@@ -101,9 +102,11 @@ export class PlaySinglesComponent {
       let className: string, text: string;
 
       if (this.question.answer === option) {
+        this.soundService.playCorrectSound();
         className = 'correct';
         text = 'أحسنت اختيار الإجابة الصحيحة';
       } else {
+        this.soundService.playInCorrectSound();
         className = 'wrong';
         text = 'الإجابة خاطئة حاول التركيز المرة القادمة';
       }
@@ -111,6 +114,7 @@ export class PlaySinglesComponent {
       this.answered = true;
 
       optionDoc.classList.add(className);
+
       setTimeout(() => {
         this.message = { text, type: className };
         this.answer = <any>className;

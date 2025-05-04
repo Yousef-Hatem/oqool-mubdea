@@ -23,26 +23,26 @@ export class HomeComponent {
         img: '2.jpg',
         router: '/group-play',
       },
-      {
-        title: 'الكتاب التفاعلي',
-        img: '3.jpeg',
-        router: '',
-      },
-      {
-        title: 'التعزيز الأسبوعي',
-        img: '4.png',
-        router: '',
-      },
-      {
-        title: 'مبدعون متميزون',
-        img: '5.jpeg',
-        router: '',
-      },
-      {
-        title: 'بصمتك دليل تميزك',
-        img: '6.jpeg',
-        router: '',
-      },
+      // {
+      //   title: 'الكتاب التفاعلي',
+      //   img: '3.jpeg',
+      //   router: '',
+      // },
+      // {
+      //   title: 'التعزيز الأسبوعي',
+      //   img: '4.png',
+      //   router: '',
+      // },
+      // {
+      //   title: 'مبدعون متميزون',
+      //   img: '5.jpeg',
+      //   router: '',
+      // },
+      // {
+      //   title: 'بصمتك دليل تميزك',
+      //   img: '6.jpeg',
+      //   router: '',
+      // },
       {
         title: 'الرياضيات الممتعة',
         img: '7.jpeg',
@@ -51,16 +51,16 @@ export class HomeComponent {
           setTimeout(() => (this.showFunMathematicsPopup = true), 0);
         },
       },
-      {
-        title: 'إدارة الأسئلة',
-        img: '8.jpg',
-        router: '',
-      },
-      {
-        title: 'المفكرة التعليمية',
-        img: '9.jpeg',
-        router: '',
-      },
+      // {
+      //   title: 'إدارة الأسئلة',
+      //   img: '8.jpg',
+      //   router: '',
+      // },
+      // {
+      //   title: 'المفكرة التعليمية',
+      //   img: '9.jpeg',
+      //   router: '',
+      // },
     ];
 
   hideFunMathematicsPopup(): void {
